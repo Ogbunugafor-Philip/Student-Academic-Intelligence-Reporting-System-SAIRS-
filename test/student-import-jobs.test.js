@@ -1,0 +1,25 @@
+'use strict';
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const root=path.join(__dirname,'..');
+const migration=fs.readFileSync(path.join(root,'src/db/migrations/007_student_import_jobs.sql'),'utf8');
+const service=fs.readFileSync(path.join(root,'src/services/student-import-job-service.js'),'utf8');
+const bulk=fs.readFileSync(path.join(root,'src/services/bulk-student-import-service.js'),'utf8');
+const routes=fs.readFileSync(path.join(root,'src/routes/api-routes.js'),'utf8');
+const ui=fs.readFileSync(path.join(root,'public/js/modules/students.js'),'utf8');
+const artifacts=require('../src/security/import-artifacts');
+
+test('migration creates persistent tenant-scoped import jobs and encrypted credential artifacts',()=>{assert.match(migration,/CREATE TABLE student_import_jobs/);assert.match(migration,/CREATE TABLE student_import_credentials/);assert.match(migration,/school_id uuid NOT NULL/);});
+test('job statuses are database constrained',()=>assert.match(migration,/PENDING','PROCESSING','COMPLETED','FAILED/));
+test('active and completed fingerprints are unique per school',()=>assert.match(migration,/UNIQUE INDEX student_import_jobs_active_fingerprint_unique[\s\S]*school_id,fingerprint[\s\S]*PENDING','PROCESSING','COMPLETED/));
+test('human-readable references use the IMP year sequence format',()=>assert.match(service,/IMP-%s-%s/));
+test('source files and credentials use authenticated encryption',()=>{const value={password:'NeverPlaintext!42'},encrypted=artifacts.encrypt(value);assert.equal(encrypted.ciphertext.includes(Buffer.from(value.password)),false);assert.deepEqual(artifacts.decrypt({ciphertext:encrypted.ciphertext,iv:encrypted.iv,auth_tag:encrypted.authTag}),value);});
+test('completion and credential persistence occur inside the bulk transaction callback',()=>{assert.match(bulk,/if\(onComplete\)await onComplete/);assert.match(service,/student_import_credentials[\s\S]*status='COMPLETED'/);});
+test('failed jobs report zero counts and emit the required audit event',()=>{assert.match(service,/status='FAILED'[\s\S]*students_created=0[\s\S]*guardians_created=0/);assert.match(service,/action:'IMPORT_FAILED'/);});
+test('job and credential routes are restricted to IT administrators',()=>{for(const route of ['/students/import/jobs','/students/import/jobs/status','/students/import/jobs/credentials']){const at=routes.indexOf(route);assert.ok(at>0);assert.match(routes.slice(at,at+180),/admin/);}});
+test('credential download is tenant scoped and audited without password hashes',()=>{assert.match(service,/student_import_credentials WHERE school_id=\$1 AND job_id=\$2/);assert.match(service,/GUARDIAN_CREDENTIALS_DOWNLOADED/);assert.doesNotMatch(service,/password_hash/);});
+test('students UI exposes Import History, polling, references, exact summaries and credential download',()=>{for(const text of ['Import History','Import Reference:','/api/students/import/jobs/status','Guardian links created','Enrolments created','Download Guardian Credentials'])assert.ok(ui.includes(text),text);});
+test('bulk password hashing remains bounded at four workers',()=>assert.match(bulk,/parallelMap\(\[\.\.\.firstByEmail\.values\(\)\], 4/));
+test('the server resumes persisted unfinished jobs after restart',()=>assert.match(fs.readFileSync(path.join(root,'server.js'),'utf8'),/resumeUnfinished/));

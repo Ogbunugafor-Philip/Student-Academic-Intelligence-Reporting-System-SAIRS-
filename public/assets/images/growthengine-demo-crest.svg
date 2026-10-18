@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">GrowthEngine Demonstration School crest</title>
+  <desc id="desc">A deep green and gold shield with crown, laurel and open book.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#F8F6EF" stroke="#C79A32" stroke-width="18" d="M256 44 422 102v139c0 112-67 188-166 230C157 429 90 353 90 241V102z"/>
+    <path fill="#073D30" stroke="#073D30" stroke-width="8" d="M256 77 389 123v116c0 88-51 151-133 190-82-39-133-102-133-190V123z"/>
+    <path fill="#C79A32" stroke="#C79A32" stroke-width="6" d="m187 92 19-38 50 35 50-35 19 38-25 19h-88z"/>
+    <path stroke="#C79A32" stroke-width="12" d="M154 287c-32 23-43 59-34 92M358 287c32 23 43 59 34 92"/>
+    <path stroke="#C79A32" stroke-width="8" d="m139 307-27-8m19 36-30 5m30 27-24 16m266-76 27-8m-19 36 30 5m-30 27 24 16"/>
+    <path fill="#F8F6EF" stroke="#C79A32" stroke-width="9" d="M164 198c36-15 67-8 92 13 25-21 56-28 92-13v112c-36-15-67-8-92 13-25-21-56-28-92-13z"/>
+    <path stroke="#C79A32" stroke-width="7" d="M256 212v110m-71-91c26-7 47-2 61 9m-61 24c26-7 47-2 61 9m81-42c-26-7-47-2-61 9m61 24c-26-7-47-2-61 9"/>
+  </g>
+  <text x="256" y="150" fill="#F8F6EF" font-family="Arial, sans-serif" font-size="26" font-weight="700" text-anchor="middle">GROWTHENGINE</text>
+  <text x="256" y="180" fill="#C79A32" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">DEMONSTRATION SCHOOL</text>
+</svg>

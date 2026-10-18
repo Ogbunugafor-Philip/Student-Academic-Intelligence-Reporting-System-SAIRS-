@@ -1,0 +1,33 @@
+'use strict';
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const root=path.join(__dirname,'..');
+const service=fs.readFileSync(path.join(root,'src/services/student-service.js'),'utf8');
+const routes=fs.readFileSync(path.join(root,'src/routes/api-routes.js'),'utf8');
+const ui=fs.readFileSync(path.join(root,'public/js/modules/students.js'),'utf8');
+const {studentGuardian}=require('../src/validators/schemas');
+const {guardianNameParts}=require('../src/services/student-service');
+const {generateTemporaryPassword,hashPassword,verifyPassword}=require('../src/security/password');
+
+const valid={admissionNumber:'ADM-1',firstName:'Ada',middleName:'',lastName:'Okafor',admissionDate:'2026-09-01',classId:'11111111-1111-4111-8111-111111111111',classArmId:'22222222-2222-4222-8222-222222222222',guardianFullName:'Mary Ada Okafor',guardianEmail:'MARY@example.com',guardianPhone:'+234 801 234 5678',guardianAddress:'12 School Road'};
+
+test('new student and guardian route uses the atomic onboarding service',()=>{assert.match(routes,/validate\(schemas\.studentGuardian\).*createWithGuardian/s);assert.match(service,/return transaction\(async client=>/);});
+test('new guardian creates one active PARENT user requiring password change',()=>{assert.match(service,/INSERT INTO users/);assert.match(service,/PARENT/);assert.match(service,/must_change_password/);assert.match(service,/true/);});
+test('existing guardian is selected by normalized school-scoped email and reused',()=>{assert.match(service,/FROM parents WHERE school_id=\$1 AND lower\(email\)=lower\(\$2\)/);assert.match(service,/guardianExisting=Boolean\(parent\|\|user\)/);});
+test('the same guardian can link to multiple students without resetting a password',()=>{assert.match(service,/if\(!user\)[\s\S]*generateTemporaryPassword/);assert.match(service,/INSERT INTO parent_student_links/);});
+test('duplicate admission number is rejected before insertion',()=>{assert.match(service,/students WHERE school_id=\$1 AND admission_number=\$2/);assert.match(service,/A student with this admission number already exists/);});
+test('invalid guardian email is rejected and valid email is normalized',()=>{assert.equal(studentGuardian.safeParse({...valid,guardianEmail:'not-an-email'}).success,false);assert.equal(studentGuardian.parse(valid).guardianEmail,'mary@example.com');});
+test('class arm must be active, tenant-scoped, and belong to the selected class',()=>{for(const value of['class_arms WHERE school_id=$1','id=$2','class_id=$3','status=\\\'ACTIVE\\\''])assert.ok(service.includes(value),value);});
+test('missing current session blocks creation with an actionable message',()=>{assert.match(service,/No current academic session is configured\. Configure the current academic session before adding students\./);});
+test('temporary guardian password is cryptographically random and Argon2id hashed',async()=>{const one=generateTemporaryPassword(),two=generateTemporaryPassword();assert.notEqual(one,two);const hash=await hashPassword(one);assert.match(hash,/^\$argon2id\$/);assert.equal(await verifyPassword(hash,one),true);assert.equal(hash.includes(one),false);});
+test('plaintext password is returned once but is absent from inserts and audit values',()=>{assert.match(service,/result\.temporaryPassword=temporaryPassword/);assert.doesNotMatch(service,/newValue:\{[^}]*temporaryPassword/);assert.doesNotMatch(service,/INSERT INTO users[^;]*temporaryPassword/);});
+test('transaction wrapper guarantees rollback when linking or placement fails',()=>{assert.match(service,/createWithGuardian[\s\S]*return transaction\(client=>onboardWithGuardian/);assert.match(service,/INSERT INTO parent_student_links/);assert.match(service,/INSERT INTO student_class_history/);});
+test('parent ownership remains based on parent_student_links',()=>{assert.match(service,/JOIN parent_student_links l ON l\.parent_id=p\.id/);});
+test('all onboarding lookups and writes retain school scope',()=>{for(const fragment of ['academic_sessions WHERE school_id=$1','classes WHERE school_id=$1','class_arms WHERE school_id=$1','parents WHERE school_id=$1','users WHERE school_id=$1'])assert.ok(service.includes(fragment),fragment);});
+test('guardian names map onto the existing parent name columns',()=>{assert.deepEqual(guardianNameParts('Mary Ada Okafor'),{firstName:'Mary',middleName:'Ada',lastName:'Okafor'});assert.deepEqual(guardianNameParts('Madonna'),{firstName:'Madonna',middleName:'',lastName:''});});
+test('UI hides technical IDs and implements dependent class-arm selection',()=>{const createFlow=ui.slice(ui.indexOf('function studentGuardianDialog'),ui.indexOf('function importDialog'));assert.match(createFlow,/Add Student &amp; Guardian/);assert.doesNotMatch(createFlow,/Class ID|Arm ID|Session ID/);assert.match(createFlow,/arms\.filter\(\s*\(x\)\s*=>\s*x\.ClassID\s*===\s*classSelect\.value\s*\)/);assert.match(createFlow,/armSelect\.disabled\s*=\s*!classSelect\.value/);});
+test('UI shows new or existing guardian success without persisting credentials',()=>{assert.match(ui,/Copy credentials/);assert.match(ui,/It will not be shown again/);assert.match(ui,/linked to the existing guardian account/);assert.doesNotMatch(ui,/localStorage.*temporaryPassword/);});
+test('live student route has one create renderer with all required business labels',()=>{const createFlow=ui.slice(ui.indexOf('function studentGuardianDialog'),ui.indexOf('function importDialog'));assert.equal((ui.match(/function studentGuardianDialog/g)||[]).length,1);for(const label of ['Admission Number','Student First Name','Student Middle Name','Student Last Name','Admission Date','Class','Class Arm','Guardian Full Name','Guardian Email','Guardian Phone Number','Guardian Address'])assert.ok(createFlow.includes(label),label);for(const label of ['Class ID','Class Arm ID','Admission Session ID','Student ID','Parent ID','UUID'])assert.equal(ui.includes(label),false,label);});
+test('PWA explicitly refreshes the versioned students module without clearing offline stores',()=>{const app=fs.readFileSync(path.join(__dirname,'../public/js/app.js'),'utf8'),worker=fs.readFileSync(path.join(__dirname,'../public/sw.js'),'utf8'),version=app.match(/students\.js\?v=(sairs-v\d+)/)?.[1];assert.ok(version);assert.ok(worker.includes(`students.js?v=${version}`));assert.match(worker,/VERSION='sairs-v\d+'/);assert.match(worker,/cache:'reload'/);assert.doesNotMatch(worker,/indexedDB\.deleteDatabase|localStorage\.clear/);});

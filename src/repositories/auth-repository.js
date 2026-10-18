@@ -1,0 +1,4 @@
+'use strict';const{pool}=require('../db/pool');
+async function findLoginUser(email,schoolSlug){const params=[String(email).trim().toLowerCase()],scope=schoolSlug?'AND s.slug=$2':'';if(schoolSlug)params.push(schoolSlug);const{rows}=await pool.query(`SELECT u.*,s.name school_name,s.slug school_slug,s.status school_status FROM users u JOIN schools s ON s.id=u.school_id WHERE u.email=$1 ${scope} ORDER BY u.created_at LIMIT 2`,params);return rows;}
+async function findSession(hash){const{rows}=await pool.query(`SELECT rs.id session_id,rs.csrf_hash,rs.expires_at,rs.revoked_at,u.id,u.school_id,u.email,u.role,u.status,u.must_change_password,s.name school_name,s.slug school_slug FROM refresh_sessions rs JOIN users u ON u.id=rs.user_id JOIN schools s ON s.id=u.school_id WHERE rs.token_hash=$1`,[hash]);return rows[0];}
+module.exports={findLoginUser,findSession};

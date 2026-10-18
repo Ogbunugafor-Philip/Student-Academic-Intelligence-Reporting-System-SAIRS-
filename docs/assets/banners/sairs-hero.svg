@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="560" viewBox="0 0 1440 560" role="img" aria-labelledby="title desc">
+  <title id="title">SAIRS — Student Academic Intelligence and Reporting System</title>
+  <desc id="desc">A premium dark-green banner showing connected academic records, analytics, and verified reports.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17231F"/><stop offset="1" stop-color="#315C4C"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C4A873"/><stop offset="1" stop-color="#9B7B45"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#07100D" flood-opacity=".28"/></filter>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#FFFDF8" stroke-opacity=".04"/></pattern>
+  </defs>
+  <rect width="1440" height="560" rx="28" fill="url(#bg)"/>
+  <rect width="1440" height="560" rx="28" fill="url(#grid)"/>
+  <circle cx="1290" cy="70" r="230" fill="#DCE8E2" opacity=".055"/><circle cx="1330" cy="520" r="300" fill="#9B7B45" opacity=".08"/>
+  <g transform="translate(86 98)">
+    <rect width="66" height="66" rx="18" fill="url(#gold)"/>
+    <path d="M18 25 33 17l15 8-15 8-15-8Zm6 7v10c7 6 14 6 20 0V32" fill="none" stroke="#FFFDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="0" y="138" fill="#FFFDF8" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="700" letter-spacing="5">SAIRS</text>
+    <text x="2" y="185" fill="#DCE8E2" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600">Student Academic Intelligence &amp; Reporting System</text>
+    <rect x="2" y="221" width="72" height="4" rx="2" fill="#C4A873"/>
+    <text x="2" y="274" fill="#FFFDF8" opacity=".88" font-family="Arial, Helvetica, sans-serif" font-size="22">Transforming academic administration through</text>
+    <text x="2" y="307" fill="#FFFDF8" opacity=".88" font-family="Arial, Helvetica, sans-serif" font-size="22">intelligent digital workflows.</text>
+    <g transform="translate(2 346)" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600">
+      <rect width="168" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="21" y="25" fill="#FFFDF8">ACADEMIC RECORDS</text>
+      <rect x="180" width="140" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="202" y="25" fill="#FFFDF8">INTELLIGENCE</text>
+      <rect x="332" width="152" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="353" y="25" fill="#FFFDF8">VERIFICATION</text>
+    </g>
+  </g>
+  <g transform="translate(820 78)" filter="url(#shadow)">
+    <rect width="500" height="404" rx="24" fill="#FFFDF8"/>
+    <rect width="500" height="58" rx="24" fill="#F4F1EA"/><rect y="34" width="500" height="24" fill="#F4F1EA"/>
+    <circle cx="30" cy="29" r="6" fill="#9B7B45"/><circle cx="50" cy="29" r="6" fill="#315C4C" opacity=".45"/><circle cx="70" cy="29" r="6" fill="#315C4C" opacity=".22"/>
+    <rect x="28" y="84" width="132" height="292" rx="15" fill="#17231F"/>
+    <rect x="48" y="112" width="82" height="8" rx="4" fill="#DCE8E2" opacity=".85"/>
+    <rect x="48" y="151" width="92" height="8" rx="4" fill="#FFFDF8" opacity=".32"/><rect x="48" y="181" width="73" height="8" rx="4" fill="#FFFDF8" opacity=".22"/><rect x="48" y="211" width="86" height="8" rx="4" fill="#FFFDF8" opacity=".22"/><rect x="48" y="241" width="66" height="8" rx="4" fill="#FFFDF8" opacity=".22"/>
+    <text x="190" y="108" fill="#17231F" font-family="Arial" font-size="17" font-weight="700">Academic overview</text>
+    <g transform="translate(190 132)"><rect width="84" height="72" rx="12" fill="#DCE8E2"/><rect x="96" width="84" height="72" rx="12" fill="#F4F1EA"/><rect x="192" width="84" height="72" rx="12" fill="#F1E8D9"/><text x="15" y="30" fill="#315C4C" font-family="Arial" font-size="11">STUDENTS</text><text x="15" y="55" fill="#17231F" font-family="Arial" font-size="22" font-weight="700">•••</text><text x="111" y="30" fill="#315C4C" font-family="Arial" font-size="11">REPORTS</text><text x="111" y="55" fill="#17231F" font-family="Arial" font-size="22" font-weight="700">•••</text><text x="207" y="30" fill="#9B7B45" font-family="Arial" font-size="11">REVIEWS</text><text x="207" y="55" fill="#17231F" font-family="Arial" font-size="22" font-weight="700">•••</text></g>
+    <g transform="translate(190 230)"><text y="0" fill="#17231F" font-family="Arial" font-size="13" font-weight="700">Performance intelligence</text><path d="M0 112C35 96 55 104 86 72s62-9 95-42 61-10 94-30" fill="none" stroke="#315C4C" stroke-width="5" stroke-linecap="round"/><path d="M0 112C35 96 55 104 86 72s62-9 95-42 61-10 94-30V128H0Z" fill="#DCE8E2" opacity=".65"/><circle cx="275" cy="0" r="7" fill="#9B7B45"/><path d="M0 128H278" stroke="#17231F" stroke-opacity=".12"/></g>
+  </g>
+</svg>

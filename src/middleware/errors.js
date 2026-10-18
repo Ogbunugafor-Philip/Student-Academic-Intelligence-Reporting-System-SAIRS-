@@ -1,0 +1,4 @@
+'use strict';const{logger}=require('../utilities/logger');
+function notFound(req,res){res.status(404).json({success:false,code:'NOT_FOUND',message:'API endpoint not found.'});}
+function errorHandler(error,req,res,next){if(error.code==='23505'){error.code='CONFLICT';error.status=409;error.message='A matching record already exists.';}else if(error.code==='23503'||error.code==='23514'){error.code='VALIDATION_ERROR';error.status=400;error.message='The requested change violates an academic data rule.';}const status=error.status||500,code=error.code&&typeof error.code==='string'&&!/^\d/.test(error.code)?error.code:'SERVER_ERROR';if(status>=500)logger.error('request_failed',{requestId:req.id,path:req.path,error:error.message});res.status(status).json({success:false,code,message:status>=500?'The service could not complete the request.':error.message,details:error.details});}
+module.exports={notFound,errorHandler};

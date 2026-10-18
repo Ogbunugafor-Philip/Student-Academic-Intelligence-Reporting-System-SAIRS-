@@ -1,0 +1,1 @@
+'use strict';const{errors}=require('../utilities/errors');module.exports=schema=>(req,res,next)=>{const parsed=schema.safeParse(req.body);if(!parsed.success)return next(errors.validation('Check the submitted information.',parsed.error.issues.map(x=>({field:x.path.join('.'),message:x.message}))));req.validated=parsed.data;next();};

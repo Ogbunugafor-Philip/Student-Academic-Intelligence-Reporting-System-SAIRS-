@@ -1,0 +1,4 @@
+'use strict';const nodemailer=require('nodemailer');const{env}=require('../config/env');const{errors}=require('../utilities/errors');
+function transport(){if(!env.smtp.host||!env.smtp.from)throw errors.validation('SMTP is not configured.');return nodemailer.createTransport({host:env.smtp.host,port:env.smtp.port,secure:env.smtp.secure,auth:env.smtp.user?{user:env.smtp.user,pass:env.smtp.password}:undefined,disableFileAccess:true,disableUrlAccess:true});}
+async function sendReport({to,subject,text,fileName,buffer}){if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)||/[\r\n]/.test(to))throw errors.validation('Recipient email is invalid.');return transport().sendMail({from:env.smtp.from,to,subject,text,attachments:[{filename:fileName,content:buffer,contentType:'application/pdf'}]});}
+module.exports={sendReport};

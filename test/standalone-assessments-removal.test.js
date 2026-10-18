@@ -1,0 +1,12 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),root=path.join(__dirname,'..'),read=file=>fs.readFileSync(path.join(root,file),'utf8');
+const app=read('public/js/app.js'),router=read('public/js/router.js'),admin=read('public/js/modules/administration.js'),results=read('public/js/modules/results.js'),teachers=read('src/services/teacher-service.js'),worker=read('public/sw.js'),migration=read('src/db/migrations/001_initial.sql');
+test('Assessments is absent from main navigation labels',()=>assert.doesNotMatch(app,/assessments:'Assessments'/));
+test('standalone assessment loader and registration are removed',()=>{assert.doesNotMatch(app,/modules\/assessments\.js/);assert.doesNotMatch(app,/assessments:\s*\(\)/);});
+test('old unregistered route redirects to dashboard and rewrites hash',()=>{assert.match(router,/if \(!routes\.has\(name\)\) name = 'dashboard'/);assert.match(router,/history\.replaceState\(\{\}, '', `#\/\$\{name\}`\)/);});
+test('obsolete standalone assessment module file is deleted',()=>assert.equal(fs.existsSync(path.join(root,'public/js/modules/assessments.js')),false));
+test('Administration assessment structure remains available',()=>{assert.match(admin,/Grading rules/);assert.match(admin,/assessmentStructure/);});
+test('Results module remains registered and implemented',()=>{assert.match(app,/results:\s*\(\)\s*=>\s*import\("\.\/modules\/results\.js\?v=sairs-v\d+"\)/);assert.match(results,/export async function render/);});
+test('teacher assignment behavior remains in place',()=>{assert.match(teachers,/insertResponsibility/);assert.match(teachers,/SUBJECT_TEACHER/);assert.match(teachers,/FORM_TEACHER/);});
+test('assessment and score database tables remain intact',()=>{assert.match(migration,/CREATE TABLE assessments/);assert.match(migration,/CREATE TABLE assessment_structures/);assert.match(migration,/CREATE TABLE scores/);assert.match(migration,/CREATE TABLE results/);});
+test('service worker is versioned without destructive offline clearing',()=>{assert.match(worker,/VERSION='sairs-v\d+'/);assert.doesNotMatch(worker,/indexedDB\.deleteDatabase|localStorage\.clear/);assert.doesNotMatch(worker,/modules\/assessments\.js/);});

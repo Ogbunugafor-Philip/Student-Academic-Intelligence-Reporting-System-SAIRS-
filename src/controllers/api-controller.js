@@ -1,0 +1,3 @@
+'use strict';const entities=require('../services/entity-service'),students=require('../services/student-service'),teachers=require('../services/teacher-service'),assessments=require('../services/assessment-service'),results=require('../services/result-service'),performance=require('../services/performance-service'),reports=require('../services/report-service'),sync=require('../services/sync-service');const{legacy}=require('../utilities/case');
+const ok=(res,data)=>res.json({success:true,data:legacy(data)});
+module.exports={ok,entities,students,teachers,assessments,results,performance,reports,sync};
