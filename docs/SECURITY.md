@@ -25,7 +25,7 @@ The API reconstructs user ID, school ID and role from the server session. Fixed 
 
 ## Deployment responsibilities
 
-Operators must use unique production secrets, HTTPS, least-privilege database credentials, protected report storage, SMTP controls, encrypted backups and restore tests. Do not publish `.env`, database dumps, imports, reports, credential artifacts or real screenshots. Review proxy trust and cookie behaviour before Internet exposure.
+Operators must use unique production secrets, HTTPS, least-privilege database credentials, protected report storage, SMTP controls, encrypted backups and restore tests. Do not publish `.env`, database dumps, imports, reports, credential artifacts or personal records. Review proxy trust and cookie behaviour before Internet exposure.
 
 ## Known security roadmap
 

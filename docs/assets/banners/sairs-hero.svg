@@ -1,38 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="560" viewBox="0 0 1440 560" role="img" aria-labelledby="title desc">
-  <title id="title">SAIRS — From Manual Academic Administration to Streamlined Digital Workflows</title>
-  <desc id="desc">A business analysis and digital transformation case study connecting academic records, workflows, and reporting.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17231F"/><stop offset="1" stop-color="#315C4C"/></linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C4A873"/><stop offset="1" stop-color="#9B7B45"/></linearGradient>
-    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#07100D" flood-opacity=".28"/></filter>
-    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#FFFDF8" stroke-opacity=".04"/></pattern>
-  </defs>
-  <rect width="1440" height="560" rx="28" fill="url(#bg)"/>
-  <rect width="1440" height="560" rx="28" fill="url(#grid)"/>
-  <circle cx="1290" cy="70" r="230" fill="#DCE8E2" opacity=".055"/><circle cx="1330" cy="520" r="300" fill="#9B7B45" opacity=".08"/>
-  <g transform="translate(86 98)">
-    <rect width="66" height="66" rx="18" fill="url(#gold)"/>
-    <path d="M18 25 33 17l15 8-15 8-15-8Zm6 7v10c7 6 14 6 20 0V32" fill="none" stroke="#FFFDF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="0" y="138" fill="#FFFDF8" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="700" letter-spacing="5">SAIRS</text>
-    <text x="2" y="185" fill="#DCE8E2" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600">Student Academic Intelligence &amp; Reporting System</text>
-    <rect x="2" y="221" width="72" height="4" rx="2" fill="#C4A873"/>
-    <text x="2" y="274" fill="#FFFDF8" opacity=".88" font-family="Arial, Helvetica, sans-serif" font-size="22">From manual academic administration to</text>
-    <text x="2" y="307" fill="#FFFDF8" opacity=".88" font-family="Arial, Helvetica, sans-serif" font-size="22">streamlined digital workflows.</text>
-    <g transform="translate(2 346)" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600">
-      <rect width="178" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="20" y="25" fill="#FFFDF8">BUSINESS ANALYSIS</text>
-      <rect x="190" width="166" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="212" y="25" fill="#FFFDF8">PROCESS DESIGN</text>
-      <rect x="368" width="174" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="389" y="25" fill="#FFFDF8">TRANSFORMATION</text>
-    </g>
-  </g>
-  <g transform="translate(820 78)" filter="url(#shadow)">
-    <rect width="500" height="404" rx="24" fill="#FFFDF8"/>
-    <rect width="500" height="58" rx="24" fill="#F4F1EA"/><rect y="34" width="500" height="24" fill="#F4F1EA"/>
-    <circle cx="30" cy="29" r="6" fill="#9B7B45"/><circle cx="50" cy="29" r="6" fill="#315C4C" opacity=".45"/><circle cx="70" cy="29" r="6" fill="#315C4C" opacity=".22"/>
-    <rect x="28" y="84" width="132" height="292" rx="15" fill="#17231F"/>
-    <rect x="48" y="112" width="82" height="8" rx="4" fill="#DCE8E2" opacity=".85"/>
-    <rect x="48" y="151" width="92" height="8" rx="4" fill="#FFFDF8" opacity=".32"/><rect x="48" y="181" width="73" height="8" rx="4" fill="#FFFDF8" opacity=".22"/><rect x="48" y="211" width="86" height="8" rx="4" fill="#FFFDF8" opacity=".22"/><rect x="48" y="241" width="66" height="8" rx="4" fill="#FFFDF8" opacity=".22"/>
-    <text x="190" y="108" fill="#17231F" font-family="Arial" font-size="17" font-weight="700">Academic overview</text>
-    <g transform="translate(190 132)"><rect width="84" height="72" rx="12" fill="#DCE8E2"/><rect x="96" width="84" height="72" rx="12" fill="#F4F1EA"/><rect x="192" width="84" height="72" rx="12" fill="#F1E8D9"/><text x="15" y="30" fill="#315C4C" font-family="Arial" font-size="11">STUDENTS</text><text x="15" y="55" fill="#17231F" font-family="Arial" font-size="22" font-weight="700">•••</text><text x="111" y="30" fill="#315C4C" font-family="Arial" font-size="11">REPORTS</text><text x="111" y="55" fill="#17231F" font-family="Arial" font-size="22" font-weight="700">•••</text><text x="207" y="30" fill="#9B7B45" font-family="Arial" font-size="11">REVIEWS</text><text x="207" y="55" fill="#17231F" font-family="Arial" font-size="22" font-weight="700">•••</text></g>
-    <g transform="translate(190 230)"><text y="0" fill="#17231F" font-family="Arial" font-size="13" font-weight="700">Performance intelligence</text><path d="M0 112C35 96 55 104 86 72s62-9 95-42 61-10 94-30" fill="none" stroke="#315C4C" stroke-width="5" stroke-linecap="round"/><path d="M0 112C35 96 55 104 86 72s62-9 95-42 61-10 94-30V128H0Z" fill="#DCE8E2" opacity=".65"/><circle cx="275" cy="0" r="7" fill="#9B7B45"/><path d="M0 128H278" stroke="#17231F" stroke-opacity=".12"/></g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="600" viewBox="0 0 1440 600" role="img" aria-labelledby="title desc">
+<title id="title">SAIRS — Transforming Academic Administration Through Smarter Business Processes</title><desc id="desc">Premium business transformation cover illustrating connected academic information, efficient processes, and structured reporting.</desc>
+<defs><linearGradient id="bg" x2="100%" y2="100%"><stop stop-color="#101B17"/><stop offset=".58" stop-color="#17231F"/><stop offset="1" stop-color="#315C4C"/></linearGradient><linearGradient id="gold" x2="100%" y2="100%"><stop stop-color="#D5BE8D"/><stop offset="1" stop-color="#9B7B45"/></linearGradient><filter id="s"><feDropShadow dy="18" stdDeviation="24" flood-color="#07100D" flood-opacity=".35"/></filter><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#FFFDF8" stroke-opacity=".035"/></pattern></defs>
+<rect width="1440" height="600" rx="32" fill="url(#bg)"/><rect width="1440" height="600" rx="32" fill="url(#grid)"/><path d="M945 0c-60 135-8 236 106 285s186 145 122 315h267V0Z" fill="#DCE8E2" opacity=".05"/><circle cx="1370" cy="60" r="220" fill="#9B7B45" opacity=".09"/>
+<g transform="translate(78 76)" font-family="Arial,sans-serif"><rect width="72" height="72" rx="20" fill="url(#gold)"/><path d="M20 29 36 20l16 9-16 9-16-9Zm6 9v11c8 6 15 6 21 0V38" fill="none" stroke="#FFFDF8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><text x="0" y="166" fill="#FFFDF8" font-size="92" font-weight="700" letter-spacing="7">SAIRS</text><text x="2" y="211" fill="#DCE8E2" font-size="25" font-weight="600">Student Academic Intelligence &amp; Reporting System</text><rect x="2" y="246" width="80" height="4" rx="2" fill="#C4A873"/><text x="2" y="298" fill="#FFFDF8" font-size="23">Transforming Academic Administration Through</text><text x="2" y="333" fill="#FFFDF8" font-size="23" font-weight="700">Smarter Business Processes</text><rect x="2" y="374" width="590" height="44" rx="22" fill="#FFFDF8" opacity=".09" stroke="#FFFDF8" stroke-opacity=".14"/><text x="297" y="402" text-anchor="middle" fill="#DCE8E2" font-size="13" font-weight="700" letter-spacing=".8">BUSINESS ANALYSIS &amp; DIGITAL TRANSFORMATION CASE STUDY</text></g>
+<g transform="translate(870 88)" filter="url(#s)" font-family="Arial,sans-serif"><rect width="470" height="424" rx="30" fill="#FFFDF8"/><text x="38" y="53" fill="#17231F" font-size="13" font-weight="700" letter-spacing="1">CONNECTED ACADEMIC WORKFLOW</text><circle cx="414" cy="48" r="18" fill="#DCE8E2"/><path d="m406 48 6 6 11-14" fill="none" stroke="#315C4C" stroke-width="3" stroke-linecap="round"/>
+<path d="M83 142C165 92 225 114 281 168s79 58 116 28" fill="none" stroke="#9B7B45" stroke-width="3" stroke-dasharray="7 8"/><path d="M84 290c84-46 146-29 197 18s82 34 116-4" fill="none" stroke="#4F8195" stroke-width="3" stroke-dasharray="7 8"/>
+<g><circle cx="82" cy="142" r="39" fill="#DCE8E2"/><path d="M64 152h36M69 147v-23h26v23M77 129v-9h10v9" fill="none" stroke="#315C4C" stroke-width="4"/><text x="82" y="199" text-anchor="middle" fill="#315C4C" font-size="12" font-weight="700">ADMINISTRATION</text></g>
+<g><circle cx="250" cy="133" r="39" fill="#E2EEF4"/><path d="M233 117h34v32h-34zM241 126h18M241 136h14" fill="none" stroke="#4F8195" stroke-width="4"/><text x="250" y="190" text-anchor="middle" fill="#315C4C" font-size="12" font-weight="700">ASSESSMENT</text></g>
+<g><circle cx="397" cy="196" r="39" fill="#F1E8D9"/><path d="m380 199 10 10 25-29" fill="none" stroke="#9B7B45" stroke-width="5" stroke-linecap="round"/><text x="397" y="253" text-anchor="middle" fill="#315C4C" font-size="12" font-weight="700">APPROVAL</text></g>
+<g><circle cx="82" cy="290" r="39" fill="#EEE8F4"/><path d="M65 308h34v-34H65zM73 283h18M73 293h18M73 302h12" fill="none" stroke="#6D5B7B" stroke-width="4"/><text x="82" y="347" text-anchor="middle" fill="#315C4C" font-size="12" font-weight="700">REPORTING</text></g>
+<g><circle cx="250" cy="289" r="39" fill="#DCE8E2"/><path d="M232 299c5-20 31-20 36 0M242 276a8 8 0 1 0 16 0 8 8 0 1 0-16 0" fill="none" stroke="#315C4C" stroke-width="4"/><text x="250" y="346" text-anchor="middle" fill="#315C4C" font-size="12" font-weight="700">FAMILY ACCESS</text></g>
+<g><circle cx="397" cy="304" r="39" fill="#E2EEF4"/><path d="M378 315h38M382 305l9-12 9 7 13-19" fill="none" stroke="#4F8195" stroke-width="4" stroke-linecap="round"/><text x="397" y="361" text-anchor="middle" fill="#315C4C" font-size="12" font-weight="700">INTELLIGENCE</text></g>
+<rect x="36" y="385" width="398" height="3" rx="1.5" fill="#E8E3D9"/><text x="235" y="412" text-anchor="middle" fill="#66756F" font-size="12">Records · Responsibilities · Rules · Decisions · Outcomes</text></g>
 </svg>
