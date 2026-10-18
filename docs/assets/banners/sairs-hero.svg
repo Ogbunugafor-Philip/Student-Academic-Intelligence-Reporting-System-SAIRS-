@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="560" viewBox="0 0 1440 560" role="img" aria-labelledby="title desc">
-  <title id="title">SAIRS — Student Academic Intelligence and Reporting System</title>
-  <desc id="desc">A premium dark-green banner showing connected academic records, analytics, and verified reports.</desc>
+  <title id="title">SAIRS — From Manual Academic Administration to Streamlined Digital Workflows</title>
+  <desc id="desc">A business analysis and digital transformation case study connecting academic records, workflows, and reporting.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17231F"/><stop offset="1" stop-color="#315C4C"/></linearGradient>
     <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C4A873"/><stop offset="1" stop-color="#9B7B45"/></linearGradient>
@@ -16,12 +16,12 @@
     <text x="0" y="138" fill="#FFFDF8" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="700" letter-spacing="5">SAIRS</text>
     <text x="2" y="185" fill="#DCE8E2" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600">Student Academic Intelligence &amp; Reporting System</text>
     <rect x="2" y="221" width="72" height="4" rx="2" fill="#C4A873"/>
-    <text x="2" y="274" fill="#FFFDF8" opacity=".88" font-family="Arial, Helvetica, sans-serif" font-size="22">Transforming academic administration through</text>
-    <text x="2" y="307" fill="#FFFDF8" opacity=".88" font-family="Arial, Helvetica, sans-serif" font-size="22">intelligent digital workflows.</text>
+    <text x="2" y="274" fill="#FFFDF8" opacity=".88" font-family="Arial, Helvetica, sans-serif" font-size="22">From manual academic administration to</text>
+    <text x="2" y="307" fill="#FFFDF8" opacity=".88" font-family="Arial, Helvetica, sans-serif" font-size="22">streamlined digital workflows.</text>
     <g transform="translate(2 346)" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600">
-      <rect width="168" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="21" y="25" fill="#FFFDF8">ACADEMIC RECORDS</text>
-      <rect x="180" width="140" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="202" y="25" fill="#FFFDF8">INTELLIGENCE</text>
-      <rect x="332" width="152" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="353" y="25" fill="#FFFDF8">VERIFICATION</text>
+      <rect width="178" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="20" y="25" fill="#FFFDF8">BUSINESS ANALYSIS</text>
+      <rect x="190" width="166" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="212" y="25" fill="#FFFDF8">PROCESS DESIGN</text>
+      <rect x="368" width="174" height="38" rx="19" fill="#FFFDF8" opacity=".1"/><text x="389" y="25" fill="#FFFDF8">TRANSFORMATION</text>
     </g>
   </g>
   <g transform="translate(820 78)" filter="url(#shadow)">

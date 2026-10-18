@@ -6,6 +6,8 @@
 
 SAIRS addresses an information chain that begins with school configuration and enrolment and ends with an approved academic record delivered to a family. The central analysis challenge is not calculation alone: different stakeholders act at different stages, the same student changes class over time, and published evidence must remain trustworthy after operational data changes.
 
+The project reframes academic reporting as a coordinated business process. The target state connects records, responsibilities, business rules, approvals, publication, and historical continuity. The “manual” or “fragmented” baseline used in this case study represents the class of operational problem SAIRS was designed to solve; it is not presented as a measured observation of a named organisation.
+
 ## Stakeholders and needs
 
 | Stakeholder | Core need represented in the implementation |
@@ -26,6 +28,8 @@ SAIRS addresses an information chain that begins with school configuration and e
 - **Publication integrity:** snapshots, versions, checksums and verification tokens preserve issued evidence.
 - **Operational resilience:** transactional imports and encrypted offline queues reduce partial work.
 
+These requirements are inferred from and verified by the delivered product. No claim is made that formal interviews, workshops, or signed requirements documents took place.
+
 ## Process redesign
 
 The solution replaces an implicit hand-off with visible states: draft score → submitted component → management decision → complete class compilation → management approval → published report. Automation calculates and checks; people retain responsibility for academic entry and approval. Exceptions return to the correct actor instead of bypassing the workflow.
@@ -36,4 +40,4 @@ School-wide and scoped performance views use published evidence. The system deri
 
 ## Portfolio evidence
 
-The project demonstrates requirements elicitation from a complex domain, stakeholder/permission mapping, relational and historical modelling, business-rule implementation, workflow automation, full-stack delivery, reporting, offline design, security controls and extensive automated verification. No unverified claims are made about adoption, savings, uptime, attainment or commercial deployment.
+The project demonstrates problem framing in a complex domain, stakeholder/permission mapping, requirements interpretation, historical information modelling, business-rule implementation, workflow automation, solution delivery, reporting, offline design, security controls and extensive automated verification. No unverified claims are made about adoption, savings, uptime, attainment or commercial deployment.
